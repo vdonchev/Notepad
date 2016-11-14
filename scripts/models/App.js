@@ -48,11 +48,14 @@ class App {
                 .append($('<p>')
                     .text(noteObj.text))
                 .append($('<span>')
-                    .text('Posted on: ' + noteObj.date + ' | ID:' + noteObj.id)));
+                    .text('Posted on: ' + noteObj.date + ' | ID:' + noteObj.id)))
+            .hide();
 
 
         $(this._notesSelector)
             .append(note);
+
+        note.slideDown();
     }
 
     _printNotes() {
