@@ -37,7 +37,7 @@ class App {
         }
     }
 
-    _attachNote(noteObj) {
+    _attachNote(noteObj, animate = true) {
         let note = $('<div>')
             .addClass('panel panel-primary')
             .append($('<div>')
@@ -48,20 +48,24 @@ class App {
                 .append($('<p>')
                     .text(noteObj.text))
                 .append($('<span>')
-                    .text('Posted on: ' + noteObj.date + ' | ID:' + noteObj.id)))
-            .hide();
+                    .text('Posted on: ' + noteObj.date + ' | ID:' + noteObj.id)));
 
+        if (animate) {
+            note.hide();
+        }
 
         $(this._notesSelector)
             .append(note);
 
-        note.slideDown();
+        if (animate) {
+            note.slideDown();
+        }
     }
 
     _printNotes() {
         $(this._notesSelector).empty();
         for (let note of this._notepad.notes) {
-            this._attachNote(note);
+            this._attachNote(note, false);
         }
     }
 
