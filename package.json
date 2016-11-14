@@ -1,0 +1,7 @@
+{
+  "name": "simple-notepad",
+  "version": "0.0.1",
+  "dependencies": {
+    "systemjs": "^0.19.41"
+  }
+}
